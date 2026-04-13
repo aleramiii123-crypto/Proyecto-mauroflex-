@@ -1,0 +1,9 @@
+Diagrama de Clases - Proyecto Mauroflex
+
+Clase: Colchon
+- Atributos:
+  * referencia: String (Nombre o código del modelo)
+  * cantidad: Number (Stock disponible)
+  * fechaRegistro: Date (Registro automático)
+
+Esta clase se conecta directamente con la colección en MongoDB Atlas.
