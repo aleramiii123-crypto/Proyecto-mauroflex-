@@ -1,0 +1,4 @@
+Prototipo Mauroflex:
+- Herramienta utilizada: Figma.
+- Estilo: Minimalista con enfoque en gestión de inventarios.
+- El diseño incluye: Vista de lista de productos, formulario de registro y botones de edición/borrado.
