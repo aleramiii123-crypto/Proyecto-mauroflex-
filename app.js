@@ -1,4 +1,5 @@
 
+app.post('/ruta-del-producto', async (req, res) => {
     try {
         const nuevoProducto = new Producto(req.body);
         await nuevoProducto.save();

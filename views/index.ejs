@@ -2,44 +2,87 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Inventario Mauroflex</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Colchones Mauroflex</title>
     <style>
-        body { font-family: sans-serif; margin: 30px; background-color: #f8f9fa; }
-        h1 { color: #2c3e50; }
-        form { background: white; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        input { padding: 10px; margin-right: 10px; border: 1px solid #ccc; border-radius: 4px; }
-        button { padding: 10px 20px; background-color: #27ae60; color: white; border: none; border-radius: 4px; cursor: pointer; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
-        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-        th { background-color: #34495e; color: white; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(180deg, #330066 0%, #000033 100%);
+            color: #FFFFFF;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .login-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(0, 204, 204, 0.3);
+            width: 320px;
+        }
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="button"] {
+            background-color: #00CCCC;
+            color: #330066;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
-    <h1>Colchones Mauroflex - Inventario</h1>
-    
-    <form action="/agregar" method="POST">
-        <input type="text" name="referencia" placeholder="Referencia del colchón" required>
-        <input type="number" name="cantidad" placeholder="Cantidad" required>
-        <button type="submit">Registrar Colchón</button>
-    </form>
+    <header style="padding: 20px;">
+        <h1>COLCHONES MAUR <span style="color: #FF0066">FLEX</span></h1>
+        <p style="color: #FF0066; font-weight: bold;">DISEÑADOS PARA UN BUEN DESCANSO</p>
+    </header>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Referencia</th>
-                <th>Stock</th>
-                <th>Fecha</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% colchones.forEach(colchon => { %>
-                <tr>
-                    <td><%= colchon.referencia %></td>
-                    <td><%= colchon.cantidad %> unidades</td>
-                    <td><%= colchon.fechaRegistro.toLocaleDateString() %></td>
-                </tr>
-            <% }) %>
-        </tbody>
-    </table>
+    <div class="login-box">
+        <form>
+            <label>Correo Electrónico</label>
+            <input type="text" id="emailUsuario" placeholder="ejemplo@correo.com">
+
+            <label>Contraseña</label>
+            <input type="password" id="passUsuario" placeholder="••••••••">
+
+            <input type="button" value="Ingresar" onclick="validarAcceso()">
+            
+            <h6 style="margin-top: 20px;">¿Aún no te has registrado?</h6>
+            <p><a href="/registro" style="color: #00CCCC; text-decoration: none; font-weight: bold;">Regístrate aquí</a></p>
+        </form>
+    </div>
+
+    <script>
+        function validarAcceso() {
+            const correo = document.getElementById('emailUsuario').value;
+            const clave = document.getElementById('passUsuario').value;
+
+            if (correo === "" || clave === "") {
+                alert("⚠️ Por favor, ingresa tus datos.");
+            } else {
+                alert("✅ ¡Conexión exitosa!");
+                window.location.href = "/producto";
+            }
+        }
+    </script>
 </body>
 </html>
